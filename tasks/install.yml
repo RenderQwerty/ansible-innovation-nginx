@@ -4,6 +4,11 @@
   yum:
     name: "{{ yum_required_packages }}"
 
+- name: install latest pyOpenSSL # using pip because of https://github.com/ansible/ansible/issues/34054
+  pip:
+    name: pyOpenSSL
+    state: latest
+
 - name: Add nginx to autostart
   service:
     name: nginx
