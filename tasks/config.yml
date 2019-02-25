@@ -45,7 +45,7 @@
 
 - name: generate ssl cert for jenkins
   openssl_certificate:
-    path: "/etc/nginx/ssl/{{ domain }}/{{ domain}}.crt"
+    path: "/etc/nginx/ssl/{{ domain }}/{{ domain }}.crt"
     privatekey_path: "/etc/nginx/ssl/{{ domain }}/{{ domain}}.pem"
     csr_path: "/etc/nginx/ssl/{{ domain }}/{{ domain}}.csr"
     provider: selfsigned
