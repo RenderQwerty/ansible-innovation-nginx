@@ -1,0 +1,19 @@
+---
+
+- name: Generate an OpenSSL private key.
+  openssl_privatekey:
+    path: "/etc/nginx/ssl/{{ domain }}/{{ domain}}.pem"
+
+- name: Generate an OpenSSL CSR
+  openssl_csr:
+    path: "/etc/nginx/ssl/{{ domain }}/{{ domain}}.csr"
+    privatekey_path: "/etc/nginx/ssl/{{ domain }}/{{ domain}}.pem"
+    common_name: "{{ domain }}"
+
+- name: generate self signed cert for jenkins
+  openssl_certificate:
+    path: "/etc/nginx/ssl/{{ domain }}/{{ domain }}.crt"
+    privatekey_path: "/etc/nginx/ssl/{{ domain }}/{{ domain}}.pem"
+    csr_path: "/etc/nginx/ssl/{{ domain }}/{{ domain}}.csr"
+    provider: selfsigned
+  notify: Reload Nginx
