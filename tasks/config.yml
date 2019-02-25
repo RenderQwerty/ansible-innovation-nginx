@@ -32,5 +32,4 @@
   template:
     dest:  /etc/nginx/conf.d/default.conf
     src: default.conf.j2
-    validate: "nginx -t %s"
   notify: Reload Nginx
