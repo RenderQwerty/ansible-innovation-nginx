@@ -1,5 +1,13 @@
 ---
 
+- name: create dir for ssl certs
+  file:
+    path: "/etc/nginx/ssl/{{ domain }}"
+    state: directory
+    mode: 0755
+    owner: nginx
+    group: nginx
+
 - name: Generate an OpenSSL private key.
   openssl_privatekey:
     path: "/etc/nginx/ssl/{{ domain }}/{{ domain}}.pem"
