@@ -3,5 +3,6 @@
 yum_required_packages:
   - epel-release
   - nginx
+  - libsemanage-python
 
 domain: jaels.jenkins.local
