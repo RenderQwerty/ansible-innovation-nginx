@@ -18,12 +18,13 @@
         path: "{{ item }}"
         owner: nginx
         group: nginx
+        state: touch
       loop:
         - "/var/log/nginx/{{ domain }}/access.log"
         - "/var/log/nginx/{{ domain }}/error.log"
 
 - name: copy nginx template
   template:
-    dest:  /etc/nginx/conf.d
+    dest:  /etc/nginx/conf.d/
     src: default.conf.j2
     validate: nginx -t
