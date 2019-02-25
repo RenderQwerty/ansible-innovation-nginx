@@ -5,4 +5,4 @@ yum_required_packages:
   - nginx
   - libsemanage-python
 
-domain: jaels.jenkins.local
+domain: jenkins.local

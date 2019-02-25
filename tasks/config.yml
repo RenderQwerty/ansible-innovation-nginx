@@ -28,3 +28,4 @@
     dest:  /etc/nginx/conf.d/
     src: default.conf.j2
     validate: nginx -t
+  notify: Reload Nginx

@@ -3,3 +3,9 @@
 - name: install nginx
   yum:
     name: "{{ yum_required_packages }}"
+
+- name: Add nginx to autostart
+  service:
+    name: nginx
+    state: started
+    enabled: yes
