@@ -33,3 +33,19 @@
     dest:  /etc/nginx/conf.d/default.conf
     src: default.conf.j2
   notify: Reload Nginx
+
+
+- name: create dir for ssl certs
+  file:
+    path: "/etc/nginx/ssl/{{ domain }}"
+    state: directory
+    mode: 0755
+    owner: nginx
+    group: nginx
+
+- name: generate ssl cert for jenkins
+  openssl_certificate:
+    path: "/etc/nginx/ssl/{{ domain }}/{{ domain}}.crt"
+    privatekey_path: "/etc/nginx/ssl/{{ domain }}/{{ domain}}.pem"
+    csr_path: "/etc/nginx/ssl/{{ domain }}/{{ domain}}.csr"
+    provider: selfsigned
