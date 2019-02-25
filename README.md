@@ -13,13 +13,13 @@ Available variables are listed below, along with default values (see `defaults/m
 ## Usage example
 
 ```yml
-hosts: localhost
-connection: local
-become: yes
-vars:
-- domain: example.com
-roles:
-- ansible_innovation_nginx
+- hosts: localhost
+  connection: local
+  become: yes
+  vars:
+    - domain: example.com
+  roles:
+    - ansible_innovation_nginx
 ```
 
 ## License
