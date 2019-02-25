@@ -1,0 +1,29 @@
+---
+
+- name: Set httpd_can_network_connect flag on and keep it persistent across reboots
+  seboolean:
+    name: httpd_can_network_connect
+    state: yes
+    persistent: yes
+
+- name: create log file location
+  block:
+    - file:
+        path: "/var/log/{{ domain }}"
+        state: directory
+        mode: 0755
+        owner: nginx
+        group: nginx
+    - file:
+        path: "{{ item }}"
+        owner: nginx
+        group: nginx
+      loop:
+        - "/var/log/nginx/{{ domain }}/access.log"
+        - "/var/log/nginx/{{ domain }}/error.log"
+
+- name: copy nginx template
+  template:
+    dest:  /etc/nginx/conf.d
+    src: default.conf.j2
+    validate: nginx -t

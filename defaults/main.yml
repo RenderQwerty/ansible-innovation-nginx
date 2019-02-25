@@ -1,0 +1,7 @@
+---
+
+yum_required_packages:
+  - epel-release
+  - nginx
+
+domain: jaels.jenkins.local

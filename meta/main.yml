@@ -1,0 +1,10 @@
+galaxy_info:
+  author: Yurii Fisakov
+  description: install nginx
+  license: license (MIT)
+
+  min_ansible_version: 2.4
+
+  galaxy_tags: []
+
+dependencies: []
