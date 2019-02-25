@@ -1,4 +1,4 @@
-# Ansible role for install nginx with self-signed certificate
+# Ansible role for installing nginx with self-signed certificate
 
 ## Requirements
 
