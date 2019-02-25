@@ -18,7 +18,7 @@
     privatekey_path: "/etc/nginx/ssl/{{ domain }}/{{ domain}}.pem"
     common_name: "{{ domain }}"
 
-- name: generate self signed cert for jenkins
+- name: generate self signed cert for website
   openssl_certificate:
     path: "/etc/nginx/ssl/{{ domain }}/{{ domain }}.crt"
     privatekey_path: "/etc/nginx/ssl/{{ domain }}/{{ domain}}.pem"

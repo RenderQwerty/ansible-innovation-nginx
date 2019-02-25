@@ -1,4 +1,4 @@
-upstream jenkins{
+upstream {{ domain.split(".")[0] | lower }} {
     server 127.0.0.1:8080;
 }
 
@@ -18,7 +18,7 @@ server{
     ssl_certificate_key /etc/nginx/ssl/{{ domain }}/{{ domain}}.pem;
 
     location / {
-        proxy_pass  http://jenkins;
+        proxy_pass  http://{{ domain.split(".")[0] | lower }};
         proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;
         proxy_redirect http:// https://;
         proxy_set_header        Host $host:$server_port;
