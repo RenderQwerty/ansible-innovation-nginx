@@ -5,4 +5,5 @@ yum_required_packages:
   - libsemanage-python
   - python2-pip
 
-domain: jenkins.local
+domain: []
+backend_port: []
