@@ -1,5 +1,10 @@
 ---
 
+- name: add epel repo 
+  yum:
+    name: epel-release
+
+
 - name: install nginx
   yum:
     name: "{{ yum_required_packages }}"
