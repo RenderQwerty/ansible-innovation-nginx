@@ -19,7 +19,7 @@ Available variables are listed below, along with default values (see `defaults/m
   vars:
     - domain: example.com
   roles:
-    - ansible_innovation_nginx
+    - renderqwerty.ansible_innovation_nginx
 ```
 
 ## License
